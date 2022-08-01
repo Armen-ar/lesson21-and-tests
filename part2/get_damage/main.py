@@ -41,15 +41,24 @@ class Unit:
 
 
 class StoneGuard(Unit):
-    # TODO опишите новый класс здесь
-    pass
+    def __init__(self, name, hp, defence, power):
+        super().__init__(name, hp, defence, power)
+        self.was_attacked = False
+
+    def _get_damage(self, damage):
+        if not self.was_attacked:
+            damage = 0
+            self.was_attacked = True
+            print(f"{self.name} блокирует урон")
+        super()._get_damage(damage)
 
 
 # Логика кода ниже такая же, как и в предыдущем задании.
 # Если вдруг интересно, то можно
 # поэкспериментировать со значениями моделей=)
 # Если вдруг схватка затянется, прервите её с помощью
-# сочетания клавиш ctrl - 
+# сочетания клавиш ctrl -
+
 if __name__ == '__main__':
     unit1 = StoneGuard(name='Каменный страж', hp=10, defence=2, power=5)
     unit2 = Unit(name='Богатырь былинный', hp=30, defence=2, power=4)

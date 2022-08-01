@@ -24,25 +24,30 @@ class Item:
         return price
 
     def __repr__(self):
-        pass
+        return f'{self.title}, {self.quantity} {self.unit}, {self.total_price()} руб.'
 
     def __eq__(self, other):
-        pass
+        return self.total_price() == other.total_price()
 
     def __ne__(self, other):
-        pass
+        return self.total_price() != other.total_price()
 
     def __gt__(self, other):
-        pass
+        return self.total_price() > other.total_price()
 
     def __ge__(self, other):
-        pass
+        return self.total_price() >= other.total_price()
 
     def __lt__(self, other):
-        pass
+        return self.total_price() < other.total_price()
 
     def __le__(self, other):
-        pass
+        return self.total_price() <= other.total_price()
+# Хотя
+# __eq__ и __ne__;
+# __gt__ и __lt__;
+# __ge__ и __le__;
+# они взаимно противоположные методы, поэтому можно одной покрыть действие другого.
 
 
 # Здесь код для самопроверки, 
@@ -51,19 +56,19 @@ class Item:
 if __name__ == '__main__':
     dried_pythons = Item(
         title='Сушеные питоны',
-        unit='г',
+        unit='г.',
         price_for_unit=500,
         quantity=0.3)
     
     fried_pythons = Item(
         title='Жареные питоны',
-        unit='г',
+        unit='г.',
         price_for_unit=500,
         quantity=0.3)
     
     cooked_pythons = Item(
         title='Варёные питоны',
-        unit='г',
+        unit='г.',
         price_for_unit=700,
         quantity=0.3)
 
